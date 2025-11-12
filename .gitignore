@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Compiled output
+out/
+*.vsix
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+*.tsbuildinfo

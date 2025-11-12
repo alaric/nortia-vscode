@@ -1,0 +1,11 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+tsconfig.json
+**/*.map
+**/*.ts
+!themes/**/*.json
+node_modules/**
+out/generate-themes.js
+out/generate-themes.js.map

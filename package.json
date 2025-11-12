@@ -1,0 +1,106 @@
+{
+  "name": "nortia-vscode",
+  "displayName": "Nortia Theme",
+  "description": "Temporal colour scheme for VSCode that changes throughout the day using Oklab color space",
+  "version": "0.1.0",
+  "publisher": "alaric",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alaric/nortia-vscode"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "dark",
+    "light",
+    "temporal",
+    "oklab"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "themes": [
+      {"label": "Nortia 00:00", "uiTheme": "vs-dark", "path": "./themes/nortia-00.json"},
+      {"label": "Nortia 01:00", "uiTheme": "vs-dark", "path": "./themes/nortia-01.json"},
+      {"label": "Nortia 02:00", "uiTheme": "vs-dark", "path": "./themes/nortia-02.json"},
+      {"label": "Nortia 03:00", "uiTheme": "vs-dark", "path": "./themes/nortia-03.json"},
+      {"label": "Nortia 04:00", "uiTheme": "vs-dark", "path": "./themes/nortia-04.json"},
+      {"label": "Nortia 05:00", "uiTheme": "vs-dark", "path": "./themes/nortia-05.json"},
+      {"label": "Nortia 06:00", "uiTheme": "vs-dark", "path": "./themes/nortia-06.json"},
+      {"label": "Nortia 07:00", "uiTheme": "vs-dark", "path": "./themes/nortia-07.json"},
+      {"label": "Nortia 08:00", "uiTheme": "vs", "path": "./themes/nortia-08.json"},
+      {"label": "Nortia 09:00", "uiTheme": "vs", "path": "./themes/nortia-09.json"},
+      {"label": "Nortia 10:00", "uiTheme": "vs", "path": "./themes/nortia-10.json"},
+      {"label": "Nortia 11:00", "uiTheme": "vs", "path": "./themes/nortia-11.json"},
+      {"label": "Nortia 12:00", "uiTheme": "vs", "path": "./themes/nortia-12.json"},
+      {"label": "Nortia 13:00", "uiTheme": "vs", "path": "./themes/nortia-13.json"},
+      {"label": "Nortia 14:00", "uiTheme": "vs", "path": "./themes/nortia-14.json"},
+      {"label": "Nortia 15:00", "uiTheme": "vs", "path": "./themes/nortia-15.json"},
+      {"label": "Nortia 16:00", "uiTheme": "vs-dark", "path": "./themes/nortia-16.json"},
+      {"label": "Nortia 17:00", "uiTheme": "vs-dark", "path": "./themes/nortia-17.json"},
+      {"label": "Nortia 18:00", "uiTheme": "vs-dark", "path": "./themes/nortia-18.json"},
+      {"label": "Nortia 19:00", "uiTheme": "vs-dark", "path": "./themes/nortia-19.json"},
+      {"label": "Nortia 20:00", "uiTheme": "vs-dark", "path": "./themes/nortia-20.json"},
+      {"label": "Nortia 21:00", "uiTheme": "vs-dark", "path": "./themes/nortia-21.json"},
+      {"label": "Nortia 22:00", "uiTheme": "vs-dark", "path": "./themes/nortia-22.json"},
+      {"label": "Nortia 23:00", "uiTheme": "vs-dark", "path": "./themes/nortia-23.json"}
+    ],
+    "commands": [
+      {
+        "command": "nortia.setHour",
+        "title": "Nortia: Set Hour Override"
+      },
+      {
+        "command": "nortia.resetHour",
+        "title": "Nortia: Reset to Auto (Current Time)"
+      },
+      {
+        "command": "nortia.enableAutoSwitch",
+        "title": "Nortia: Enable Automatic Hour Switching"
+      },
+      {
+        "command": "nortia.disableAutoSwitch",
+        "title": "Nortia: Disable Automatic Hour Switching"
+      }
+    ],
+    "configuration": {
+      "title": "Nortia Theme",
+      "properties": {
+        "nortia.autoSwitch": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically switch theme based on the current hour"
+        },
+        "nortia.overrideHour": {
+          "type": "number",
+          "default": -1,
+          "minimum": -1,
+          "maximum": 23,
+          "description": "Override hour (-1 for automatic based on system time, 0-23 to lock to specific hour)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "generate-themes": "ts-node src/generate-themes.ts",
+    "precompile": "npm run generate-themes"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
